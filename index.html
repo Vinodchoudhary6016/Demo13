@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    
+    #searchBox {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    #itemList {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    #itemList li {
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 5px;
+    }
+</style>
+
+<body>
+    <h1>Search Bar</h1>
+    <input type="text" id="searchBox" placeholder="Search items..." onkeyup="mysearch()">
+    <ul id="itemList">
+        <li>BMW G310R</li>
+        <li>KAWASAKI Z900</li>
+        <li>PULSAR NS</li>
+        <li>TRIUMPH</li>
+        <li>Elderberry</li>
+        <li>RE CLASSIC 350</li>
+        <li>KTM RC 390</li>
+    </ul>
+    <script>
+        function mysearch() {
+            const searchBox = document.getElementById('searchBox');
+            const filter = searchBox.value.toLowerCase();
+            const itemList = document.getElementById('itemList');
+            const items = itemList.getElementsByTagName('li');
+
+            for (i = 0; i < items.length; i++) {
+                item = items[i]
+                if (item.toLowerCase().includes(filter)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>
